@@ -117,10 +117,54 @@ section{padding:56px 0}
 .cs dl{display:grid;grid-template-columns:72px 1fr;gap:8px 12px;margin-top:12px;font-size:13.5px}
 .cs dt{font:500 10.5px/1.9 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
 .cs dd{color:var(--ink2)}
-.shots{display:grid;gap:10px;margin-top:12px}
-.shots figure{border:1px solid var(--line-soft)}
-.shots img{display:block;width:100%;height:auto}
-.shots figcaption{font:10.5px var(--mono);color:var(--ink3);padding:6px 8px;border-top:1px solid var(--line-soft)}
+/* concept animations in project cards */
+.scene{display:block;width:100%;height:auto;margin:12px 0 10px;border:1px solid var(--line-soft);background:rgba(8,40,70,.5)}
+.scene *{fill:none;stroke:var(--ink);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.scene text{fill:var(--ink2);stroke:none;font:500 8.5px var(--mono);letter-spacing:.06em}
+.scene .hi{stroke:var(--hi)} .scene text.hi{fill:var(--hi)}
+.scene .ok{stroke:var(--cyan)} .scene text.ok{fill:var(--cyan)}
+.scene .bad{stroke:#ff8a8a} .scene text.bad{fill:#ff8a8a}
+.scene .faint{stroke:var(--line-soft)}
+.scene .solid{fill:var(--hi);stroke:none}
+.scene .dash{stroke-dasharray:4 4}
+.scene .bar{fill:rgba(232,241,251,.55);stroke:none}
+.scene .faintbar{fill:rgba(232,241,251,.28)} .scene .barok{fill:var(--cyan)} .scene .barhi{fill:var(--hi)} .scene .barbad{fill:#ff8a8a}
+.scene .tag{fill:rgba(10,46,80,.9)}
+.scene text,.scene text.hi,.scene text.ok,.scene text.bad{stroke:none}
+.scene .flow{stroke:var(--cyan);stroke-dasharray:3 3}
+/* initial hidden states, then animate while the card is on screen */
+.scene .dr:not(g),.scene .dr :not(g){stroke-dasharray:1;stroke-dashoffset:1}
+.scene .dr.dash{stroke-dasharray:1;stroke-dashoffset:1}
+.scene .fi{opacity:0}
+.scene .po,.scene .mv{opacity:0;transform-box:fill-box;transform-origin:center}
+.scene .gr,.scene .sh{transform-box:fill-box;transform-origin:left center;transform:scaleX(0)}
+.scene .sh{transform:scaleX(1)}
+.scene .walk{opacity:0;offset-rotate:0deg;offset-distance:0%}
+.scene.play .dr:not(g),.scene.play .dr :not(g){animation:sDraw .8s ease var(--d) forwards}
+.scene.play .fi{animation:sFade .5s ease var(--d) forwards}
+.scene.play .po{animation:sPop .5s cubic-bezier(.2,1.5,.4,1) var(--d) forwards}
+.scene.play .po.pu{animation:sPop .5s cubic-bezier(.2,1.5,.4,1) var(--d) forwards,sPulse .9s ease-in-out calc(var(--d) + .5s) 3}
+.scene.play .mv{animation:sMove .9s cubic-bezier(.3,.8,.3,1) var(--d) forwards}
+.scene.play .gr{animation:sGrow .7s ease var(--d) forwards}
+.scene.play .sh{animation:sShrink 1s ease var(--d) forwards}
+.scene.play .walk{animation:sWalk 2.4s linear var(--d) forwards}
+.scene.play .scan{animation:sScan 1.4s ease-in-out var(--d) 2 alternate}
+.scene.play .flow{animation:sFade .5s ease var(--d) forwards,sFlow .6s linear var(--d) infinite}
+@keyframes sDraw{to{stroke-dashoffset:0}}
+@keyframes sFade{to{opacity:1}}
+@keyframes sPop{0%{opacity:0;transform:scale(0)}70%{opacity:1;transform:scale(1.15)}100%{opacity:1;transform:scale(1)}}
+@keyframes sMove{from{opacity:0;transform:translate(var(--fx),var(--fy))}25%{opacity:1}to{opacity:1;transform:none}}
+@keyframes sGrow{to{transform:scaleX(1)}}
+@keyframes sShrink{to{transform:scaleX(.3)}}
+@keyframes sWalk{0%{opacity:1;offset-distance:0%}100%{opacity:1;offset-distance:100%}}
+@keyframes sScan{to{transform:translateX(70px)}}
+@keyframes sPulse{50%{opacity:.25}}
+@keyframes sFlow{to{stroke-dashoffset:-12}}
+/* reduced motion: show the finished drawing */
+.scene.still .dr:not(g),.scene.still .dr :not(g){stroke-dashoffset:0}
+.scene.still .fi,.scene.still .po,.scene.still .mv{opacity:1;transform:none}
+.scene.still .gr{transform:none}.scene.still .sh{transform:scaleX(.3)}
+.scene.still .walk{opacity:1;offset-distance:100%}
 
 /* exploded axonometric view */
 .axo-row{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:center;border:1px solid var(--line);background:rgba(10,46,80,.35);padding:8px 24px;margin-bottom:44px}

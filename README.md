@@ -7,10 +7,6 @@ Plain HTML, CSS and JavaScript. No framework, no build step, no third party requ
 ## Edit content
 Everything on the page comes from [`public/data.js`](public/data.js): projects, case studies, publications, books, experience and certifications. Edit that file and push. Netlify redeploys automatically.
 
-To add screenshots to a project, put the images in `public/img/` and list them in that project's `shots` array:
-```js
-shots: [{ src: "img/sentinel-audit.png", alt: "Scored audit with findings" }],
-```
 
 ## Run locally
 ```bash

@@ -90,8 +90,7 @@ $("proj").innerHTML = S.projects.map((p) => `<div class="sch" id="${p.code.toLow
   <i class="cm tl"></i><i class="cm tr"></i><i class="cm bl"></i><i class="cm br"></i>
   <div class="dim"><span>${p.code}</span></div>
   <div class="hd"><span>${esc(p.type.toUpperCase())}</span><span class="st">● ${esc(p.status.toUpperCase())}</span></div>
-  <h3>${esc(p.name)}</h3><p>${esc(p.summary)}</p>${wires(p.stack)}
-  ${p.shots && p.shots.length ? `<div class="shots">${p.shots.map((x) => `<figure><a href="${x.src}" target="_blank" rel="noopener"><img src="${x.src}" alt="${esc(x.alt)}" loading="lazy"></a><figcaption>${esc(x.alt)}</figcaption></figure>`).join("")}</div>` : ""}
+  <h3>${esc(p.name)}</h3>${window.SCENES && SCENES[p.code] ? `<svg class="scene" viewBox="0 0 320 150" role="img" aria-label="${esc(p.name)}: concept animation">${SCENES[p.code]}</svg>` : ""}<p>${esc(p.summary)}</p>${wires(p.stack)}
   ${p.cs ? `<details class="cs"><summary>Case study</summary><dl>
     <dt>Problem</dt><dd>${esc(p.cs.problem)}</dd><dt>Build</dt><dd>${esc(p.cs.build)}</dd><dt>Result</dt><dd>${esc(p.cs.result)}</dd></dl></details>` : ""}
   ${p.links.length ? `<div class="ln">${linksHtml(p.links)}</div>` : ""}</div>`).join("");
@@ -125,6 +124,8 @@ $("proj").innerHTML = S.projects.map((p) => `<div class="sch" id="${p.code.toLow
   };
   still ? draw(t0) : requestAnimationFrame(draw);
 })();
+
+if (window.startScenes) startScenes();
 
 // subtle 3D tilt on schematic cards (mouse only)
 if (matchMedia("(pointer:fine)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches) {

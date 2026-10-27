@@ -67,10 +67,6 @@ window.SITE = {
         build: "A clause level legal register mapped from each site profile, scored audits grounded in the Acts, automatic findings with corrective actions and due dates, contractor close out through a secure link with no account needed, and AI that checks close out photos against the findings.",
         result: "Live with client and partner instances, each isolated on its own subdomain. The Audit tier was validated by three working consultants in its first week.",
       },
-      shots: [
-        { src: "img/sentinel-dashboard.webp", alt: "Executive dashboard: compliance score, permits, incidents and site operations" },
-        { src: "img/sentinel-programme.webp", alt: "Programme tracking: planned vs actual S curve and recovery options" },
-      ],
       links: [{ label: "sentinelsheq.com", url: "https://sentinelsheq.com" }],
     },
     {
@@ -86,10 +82,6 @@ window.SITE = {
         build: "A stage driven tool that follows the standard six stage built environment lifecycle, with Gantt timelines, contractor registers, budgets with payment certificates and variations, time and billing, and separate owner and manager views.",
         result: "Live at projects.sentinelsheq.com. Shaped by practising project managers, whose requests went into the build before launch.",
       },
-      shots: [
-        { src: "img/pm-project.webp", alt: "Project view with AI insight and forecast" },
-        { src: "img/pm-gantt.webp", alt: "Six stage lifecycle timeline" },
-      ],
       links: [],
     },
     {
@@ -105,10 +97,6 @@ window.SITE = {
         build: "A register that classifies each AI system into EU AI Act risk tiers, flags POPIA personal data processing, escalates high risk systems for review, logs incidents on a timeline and generates model cards on the company letterhead.",
         result: "In daily use inside SentraCore OS and used as the reference implementation in client governance work.",
       },
-      shots: [
-        { src: "img/os-ai-governance.webp", alt: "AI system register with risk tiers and review dates" },
-        { src: "img/os-crm.webp", alt: "SentraCore OS CRM pipeline" },
-      ],
       links: [],
     },
     {
@@ -124,7 +112,6 @@ window.SITE = {
         build: "One integrated system with a single risk method, one Statement of Applicability and a shared audit and management review cycle.",
         result: "All eight implementation steps complete and certification ready. It is the basis of SentraCore client engagements.",
       },
-      shots: [],
       links: [],
     },
     {
@@ -140,7 +127,6 @@ window.SITE = {
         build: "A mobile guard app for patrols and incident reporting that feeds a live control room dashboard.",
         result: "Phase one delivered to the client as a working build.",
       },
-      shots: [],
       links: [],
     },
     {
@@ -166,7 +152,6 @@ window.SITE = {
         build: "A reproducible harness that sends matched scam and legitimate business requests to language models in English, Shona, isiNdebele and isiZulu and compares refusal rates.",
         result: "Study design and pilot harness complete, grant application submitted, pilot results pending.",
       },
-      shots: [],
       links: [{ label: "GitHub", url: "https://github.com/Ch13f007/Phishmind-Africa" }],
     },
     {
