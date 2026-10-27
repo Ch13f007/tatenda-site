@@ -227,7 +227,7 @@ window.SITE = {
     {
       role: "Cybersecurity Analyst",
       org: "CodeAlpha",
-      when: "2026",
+      when: "Mar 2026 to Aug 2026",
       where: "Remote",
       points: [
         "Threat assessments, vulnerability evaluations and incident analysis across assigned cases.",
@@ -237,7 +237,7 @@ window.SITE = {
     {
       role: "AI Data Analyst & Quality Reviewer",
       org: "Outlier AI (Aether Project)",
-      when: "2025 to 2026",
+      when: "Jun 2025 to Mar 2026",
       where: "Remote",
       points: [
         "Evaluated AI model outputs across text, image, audio and video with 98% accuracy.",
@@ -291,8 +291,7 @@ window.SITE = {
       title: "Building the Site Twice",
       blurb: "Construction, compliance and the lessons behind building Sentinel.",
       links: [
-        { label: "Amazon", url: "https://www.amazon.com/s?k=Building+the+Site+Twice+Chitanda" },
-        { label: "Draft2Digital", url: "https://books2read.com/search?q=Building%20the%20Site%20Twice" },
+        { label: "Amazon", url: "https://www.amazon.com/dp/B0HLNSD7KW" },
       ],
     },
   ],
