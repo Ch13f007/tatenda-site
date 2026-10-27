@@ -207,3 +207,34 @@ footer small{display:block;color:var(--ink3);font-size:9px}
   footer div:nth-child(2){border-right:0}
 }
 @media (prefers-reduced-motion:reduce){.plane{transition:none}.draw{animation:none;stroke-dashoffset:0}.flow{animation:none}}
+
+/* opening sequence: a point, a grid, a plan, issued */
+#opening{position:fixed;inset:0;z-index:100;display:none;place-items:center;background-color:var(--bp);
+  background-image:radial-gradient(ellipse at 50% 45%,#14508a,transparent 70%);transition:opacity .55s ease,transform .55s ease}
+html.intro-on #opening{display:grid}
+html.intro-on body{overflow:hidden}
+html.intro-done #opening{opacity:0;transform:scale(1.04);pointer-events:none}
+.intro-inner{width:min(460px,86vw);text-align:center}
+#opening svg{width:100%;height:auto;overflow:visible}
+#opening .g{stroke:var(--line-soft);stroke-width:1;stroke-dasharray:400;stroke-dashoffset:400;animation:iDraw .7s ease-out var(--d) forwards}
+#opening .seed{fill:var(--hi);animation:iBreath 1.1s ease-in-out 2 alternate}
+#opening .ring{fill:none;stroke:var(--cyan);stroke-width:1;opacity:0;transform-origin:200px 200px;animation:iRipple 1s ease-out var(--d) forwards}
+#opening .lay polygon{fill:rgba(12,52,92,.85);stroke:var(--line);stroke-width:1.1;stroke-dasharray:420;stroke-dashoffset:420;animation:iDraw .6s ease-out var(--d) forwards}
+#opening .lay .top{fill:rgba(255,209,102,.06)}
+#opening .lay{opacity:0;animation:iFade .5s ease var(--d) forwards}
+@keyframes iDraw{to{stroke-dashoffset:0}}
+@keyframes iBreath{from{r:3;opacity:.6}to{r:7;opacity:1}}
+@keyframes iRipple{0%{opacity:.8;transform:scale(.05)}100%{opacity:0;transform:scale(3.2)}}
+.intro-tb{display:grid;grid-template-columns:1fr 1fr auto;border:1.5px solid var(--line);margin-top:6px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-align:left;
+  opacity:0;animation:iFade .4s ease 2.05s forwards}
+.intro-tb>div{padding:7px 10px;border-right:1px solid var(--line)}
+.intro-tb>div:last-child{border:0}
+.intro-tb small{display:block;color:var(--ink3);font-size:9px}
+.intro-tb .stamp{color:var(--hi);border:1.5px solid var(--hi)!important;margin:4px;align-self:center;transform:rotate(-4deg) scale(1.6);opacity:0;animation:iStamp .35s cubic-bezier(.2,1.6,.4,1) 2.45s forwards}
+@keyframes iFade{to{opacity:1}}
+@keyframes iStamp{to{opacity:1;transform:rotate(-4deg) scale(1)}}
+.intro-skip{position:absolute;bottom:22px;left:0;right:0;text-align:center;font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);opacity:0;animation:iFade .4s ease .8s forwards}
+/* hold the hero line drawing until the intro hands over */
+html.intro-on .iso .draw{animation-play-state:paused}
+@media (max-width:520px){.intro-tb{grid-template-columns:1fr 1fr}.intro-tb .stamp{grid-column:1/-1;justify-self:center}}
+@media (prefers-reduced-motion:reduce){#opening{display:none!important}}
