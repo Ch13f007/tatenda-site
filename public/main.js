@@ -86,15 +86,55 @@ function wires(stack) {
   });
   return `<svg class="wires" viewBox="0 0 300 44" aria-hidden="true">${s}</svg>`;
 }
-$("proj").innerHTML = S.projects.map((p) => `<div class="sch">
+$("proj").innerHTML = S.projects.map((p) => `<div class="sch" id="${p.code.toLowerCase()}">
   <i class="cm tl"></i><i class="cm tr"></i><i class="cm bl"></i><i class="cm br"></i>
   <div class="dim"><span>${p.code}</span></div>
   <div class="hd"><span>${esc(p.type.toUpperCase())}</span><span class="st">● ${esc(p.status.toUpperCase())}</span></div>
   <h3>${esc(p.name)}</h3><p>${esc(p.summary)}</p>${wires(p.stack)}
-  ${p.shots && p.shots.length ? `<div class="shots">${p.shots.map((x) => `<figure><img src="${x.src}" alt="${esc(x.alt)}" loading="lazy"><figcaption>${esc(x.alt)}</figcaption></figure>`).join("")}</div>` : ""}
+  ${p.shots && p.shots.length ? `<div class="shots">${p.shots.map((x) => `<figure><a href="${x.src}" target="_blank" rel="noopener"><img src="${x.src}" alt="${esc(x.alt)}" loading="lazy"></a><figcaption>${esc(x.alt)}</figcaption></figure>`).join("")}</div>` : ""}
   ${p.cs ? `<details class="cs"><summary>Case study</summary><dl>
     <dt>Problem</dt><dd>${esc(p.cs.problem)}</dd><dt>Build</dt><dd>${esc(p.cs.build)}</dd><dt>Result</dt><dd>${esc(p.cs.result)}</dd></dl></details>` : ""}
   ${p.links.length ? `<div class="ln">${linksHtml(p.links)}</div>` : ""}</div>`).join("");
+
+// exploded axonometric view of the flagship projects
+(function () {
+  const items = S.projects.filter((p) => p.cs), n = items.length, small = matchMedia("(max-width:820px)").matches;
+  const gap = small ? 40 : 46, max = small ? 18 : 24;
+  $("axo").innerHTML = items.map((p, i) => `<div class="plane" data-i="${i}" style="--z:${((n - 1) / 2 - i) * gap}px">
+    <i>L${i + 1}</i><b>${esc(p.name.length > max ? p.name.slice(0, max - 1) + "…" : p.name)}</b></div>`).join("");
+  $("axoKey").innerHTML = items.map((p, i) => `<li data-i="${i}"><span>L${i + 1}</span><span>${p.code}</span><span>${esc(p.name)}</span></li>`).join("");
+  const planes = [...document.querySelectorAll(".plane")], keys = [...document.querySelectorAll("#axoKey li")];
+  const mark = (i) => { planes.forEach((el, k) => el.classList.toggle("on", k === i)); keys.forEach((el, k) => el.classList.toggle("on", k === i)); };
+  const go = (i) => { const card = $(items[i].code.toLowerCase()); card.scrollIntoView({ behavior: "smooth", block: "center" });
+    card.classList.add("flash"); setTimeout(() => card.classList.remove("flash"), 1600); };
+  [...planes, ...keys].forEach((el) => {
+    el.addEventListener("mouseenter", () => mark(+el.dataset.i));
+    el.addEventListener("mouseleave", () => mark(-1));
+    el.addEventListener("click", () => go(+el.dataset.i));
+  });
+  // idle sway plus pointer parallax
+  const axo = $("axo"), stage = $("axoStage"), still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let px = 0, py = 0, t0 = performance.now();
+  stage.addEventListener("pointermove", (e) => { const r = stage.getBoundingClientRect();
+    px = (e.clientX - r.left) / r.width - 0.5; py = (e.clientY - r.top) / r.height - 0.5; });
+  stage.addEventListener("pointerleave", () => { px = 0; py = 0; });
+  const draw = (t) => {
+    const sway = still ? 0 : Math.sin((t - t0) / 2600) * 7;
+    axo.style.transform = `rotateX(${58 - py * 12}deg) rotateZ(${-42 + sway + px * 24}deg)`;
+    if (!still) requestAnimationFrame(draw);
+  };
+  still ? draw(t0) : requestAnimationFrame(draw);
+})();
+
+// subtle 3D tilt on schematic cards (mouse only)
+if (matchMedia("(pointer:fine)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  document.querySelectorAll(".sch").forEach((card) => {
+    card.addEventListener("pointermove", (e) => { const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = `perspective(900px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg)`; });
+    card.addEventListener("pointerleave", () => { card.style.transform = ""; });
+  });
+}
 
 // experience
 $("exp").innerHTML = S.experience.map((j, i) => `<tr><td class="rev">R${S.experience.length - i}</td><td class="when">${esc(j.when)}<br>${esc(j.where)}</td>

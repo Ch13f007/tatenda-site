@@ -67,7 +67,10 @@ window.SITE = {
         build: "A clause level legal register mapped from each site profile, scored audits grounded in the Acts, automatic findings with corrective actions and due dates, contractor close out through a secure link with no account needed, and AI that checks close out photos against the findings.",
         result: "Live with client and partner instances, each isolated on its own subdomain. The Audit tier was validated by three working consultants in its first week.",
       },
-      shots: [],
+      shots: [
+        { src: "img/sentinel-dashboard.webp", alt: "Executive dashboard: compliance score, permits, incidents and site operations" },
+        { src: "img/sentinel-programme.webp", alt: "Programme tracking: planned vs actual S curve and recovery options" },
+      ],
       links: [{ label: "sentinelsheq.com", url: "https://sentinelsheq.com" }],
     },
     {
@@ -83,12 +86,15 @@ window.SITE = {
         build: "A stage driven tool that follows the standard six stage built environment lifecycle, with Gantt timelines, contractor registers, budgets with payment certificates and variations, time and billing, and separate owner and manager views.",
         result: "Live at projects.sentinelsheq.com. Shaped by practising project managers, whose requests went into the build before launch.",
       },
-      shots: [],
+      shots: [
+        { src: "img/pm-project.webp", alt: "Project view with AI insight and forecast" },
+        { src: "img/pm-gantt.webp", alt: "Six stage lifecycle timeline" },
+      ],
       links: [],
     },
     {
       code: "PRJ-03",
-      name: "SentraCore AI Governance Module",
+      name: "SentraCore OS & AI Governance",
       type: "Production governance software",
       status: "In use",
       summary:
@@ -99,7 +105,10 @@ window.SITE = {
         build: "A register that classifies each AI system into EU AI Act risk tiers, flags POPIA personal data processing, escalates high risk systems for review, logs incidents on a timeline and generates model cards on the company letterhead.",
         result: "In daily use inside SentraCore OS and used as the reference implementation in client governance work.",
       },
-      shots: [],
+      shots: [
+        { src: "img/os-ai-governance.webp", alt: "AI system register with risk tiers and review dates" },
+        { src: "img/os-crm.webp", alt: "SentraCore OS CRM pipeline" },
+      ],
       links: [],
     },
     {
@@ -189,6 +198,16 @@ window.SITE = {
         "A service business website for a cleaning company, built to win local bookings on a small budget.",
       stack: ["Web", "Netlify"],
       links: [{ label: "sentracorecleaning.com", url: "https://sentracorecleaning.com" }],
+    },
+    {
+      code: "PRJ-11",
+      name: "Retail Brand Website",
+      type: "Spec design · wine & spirits retailer",
+      status: "Concept",
+      summary:
+        "A spec website pitched to a four location wine and spirits retailer: product ranges, promotions, store locations and event enquiries, designed to show the owner what a modern online presence could do for the business.",
+      stack: ["HTML", "CSS", "JavaScript"],
+      links: [],
     },
   ],
 
