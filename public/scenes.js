@@ -129,8 +129,19 @@
     flow(188, 74, 208, 2.0) + box(212, 22, 98, 98, "dr", 2.1, "faint") + `<path pathLength="1" class="dr faint" ${st(2.3)} d="M212 70 Q 260 40 310 80 M250 22 L 270 120"/>` +
     [[226, 34], [270, 30], [236, 80], [282, 76]].map(([x, y], i) => ico("pin", x, y, 1.1, "po", 2.6 + i * 0.2, "hi")).join("") +
     tx(214, 140, "FOUR STORES", "fi", 3.5);
+S["PRJ-12"] =
+  ico("user", 12, 44, 2.6, "dr", 0) + tx(14, 124, "GUARD", "fi", 0.5, "hi") +
+  ico("pin", 50, 68, 1.4, "po", 0.9, "hi") +
+  flow(96, 75, 116, 1.2) +
+  ico("alert", 130, 36, 1.2, "po", 1.5, "bad") +
+  box(118, 58, 70, 40, "dr", 1.8) +
+  tx(126, 74, "INCIDENT", "fi", 2.0) + tx(126, 86, "LOGGED", "fi", 2.1) +
+  flow(196, 78, 216, 2.4) +
+  ico("monitor", 220, 28, 3.6, "dr", 2.6) +
+  ico("check", 236, 56, 1.0, "po", 3.2, "ok") +
+  tx(222, 124, "CONTROL ROOM", "fi", 3.4);
 
-  window.SCENES = S;
+window.SCENES = S;
 
   // Play each scene while it is on screen, looping every few seconds.
   window.startScenes = function () {
