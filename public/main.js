@@ -1,4 +1,4 @@
-﻿const S = window.SITE, $ = (id) => document.getElementById(id);
+const S = window.SITE, $ = (id) => document.getElementById(id);
 const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const linksHtml = (ls) => ls.map((l) => `<a href="${l.url}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`).join("");
 const tblock = (no, title, sub) => `<div class="tblock"><div class="no"><small>Dwg no.</small>${no}</div>
@@ -154,9 +154,10 @@ $("certs").innerHTML = S.certifications.map((c) => `<li>${esc(c)}</li>`).join(""
 $("skills").innerHTML = Object.entries(S.skills).map(([k, v]) => `<div class="sk">${esc(k)}</div><div class="tags">${v.map((t) => `<span>${esc(t)}</span>`).join("")}</div>`).join("");
 
 // contact
-$("cta2").innerHTML = `<a class="btn hi" href="mailto:${S.email}">${S.email}</a>
-  <a class="btn" href="${S.links.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
-  <a class="btn" href="${S.links.github}" target="_blank" rel="noopener">GitHub</a>
-  <a class="btn" href="${S.links.company}" target="_blank" rel="noopener">SentraCore</a>
-  <a class="btn" href="${S.links.researchgate}" target="_blank" rel="noopener">ResearchGate</a>`;
+$("cta2").innerHTML =
+  '<a class="btn hi" href="mailto:' + S.email + '">' + S.email + '</a>' +
+  '<a class="btn" href="' + S.links.linkedin + '" target="_blank" rel="noopener">LinkedIn</a>' +
+  '<a class="btn" href="' + S.links.github + '" target="_blank" rel="noopener">GitHub</a>' +
+  '<a class="btn" href="' + S.links.company + '" target="_blank" rel="noopener">SentraCore</a>' +
+  '<a class="btn" href="' + S.links.researchgate + '" target="_blank" rel="noopener">ResearchGate</a>';
 $("yr").textContent = new Date().getFullYear();
