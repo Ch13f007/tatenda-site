@@ -158,5 +158,5 @@ $("cta2").innerHTML = `<a class="btn hi" href="mailto:${S.email}">${S.email}</a>
   <a class="btn" href="${S.links.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
   <a class="btn" href="${S.links.github}" target="_blank" rel="noopener">GitHub</a>
   <a class="btn" href="${S.links.company}" target="_blank" rel="noopener">SentraCore</a>
-   <a class="btn" href="${S.links.researchgate}" target="_blank" rel="noopener">ResearchGate</a>`;
+  <a class="btn" href="${S.links.researchgate}" target="_blank" rel="noopener">ResearchGate</a>`;
 $("yr").textContent = new Date().getFullYear();
