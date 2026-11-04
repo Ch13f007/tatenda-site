@@ -7,12 +7,13 @@ window.SITE = {
   hero: "Building secure intelligence for the future",
   roles: ["AI Governance", "Cybersecurity", "GRC & Compliance", "Systems Builder"],
   intro:
-    "I design governance systems and build the software that runs them. Ten years auditing high risk industrial sites in South Africa taught me how compliance actually fails on the ground. Today I turn that into AI governance frameworks, security tooling and compliance platforms for small and medium businesses across the US and Africa.",
+    "I design governance systems and build the software that runs them. Ten years auditing high risk industrial sites in South Africa taught me how compliance actually fails on the ground. Today I turn that into AI governance frameworks, distributed systems governance research, security tooling and compliance platforms for small and medium businesses across the US and Africa.",
   location: "South Carolina, USA · working across the US and Africa",
   email: "tchitanda6@gmail.com",
   links: {
     linkedin: "https://www.linkedin.com/in/tatenda-chitanda",
     github: "https://github.com/Ch13f007",
+    researchgate: "https://www.researchgate.net/profile/Tatenda-Chitanda-2/research",
     company: "https://www.sentracorellc.com",
   },
   cvs: [
@@ -194,6 +195,21 @@ window.SITE = {
       stack: ["HTML", "CSS", "JavaScript"],
       links: [],
     },
+    {
+      code: "PRJ-12",
+      name: "GuardAfrica Hub",
+      type: "Security operations platform · Africa",
+      status: "Live",
+      summary:
+        "A security operations platform for physical guarding companies across Africa. Field guards log patrols and incidents on mobile; a live control room dashboard gives supervisors and clients real-time oversight across multiple sites.",
+      stack: ["React", "FastAPI", "PostgreSQL"],
+      cs: {
+        problem: "Guarding companies operating across multiple sites in Africa have no live picture of patrol activity, incident status or guard locations between radio calls.",
+        build: "A mobile-first guard app for patrol logging and incident reporting, feeding a real-time control room dashboard with site-level status, incident timelines and client-facing reporting.",
+        result: "Live demo deployed and in prospect conversations.",
+      },
+      links: [],
+    },
   ],
 
   experience: [
@@ -212,7 +228,7 @@ window.SITE = {
     {
       role: "Cybersecurity Analyst",
       org: "CodeAlpha",
-      when: "Mar 2026 to Aug 2026",
+      when: "Feb 2026 to Jun 2026",
       where: "Remote",
       points: [
         "Threat assessments, vulnerability evaluations and incident analysis across assigned cases.",
@@ -313,3 +329,4 @@ window.SITE = {
     Build: ["Python", "FastAPI", "PostgreSQL", "SQL", "React", "Flutter"],
   },
 };
+
