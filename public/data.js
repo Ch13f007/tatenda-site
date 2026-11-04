@@ -21,7 +21,7 @@ window.SITE = {
   ],
   stats: [
     { value: "10+", label: "years in compliance & audit" },
-    { value: "10", label: "research publications" },
+    { value: "11", label: "research publications" },
     { value: "6", label: "platforms built & shipped" },
     { value: "2", label: "published books" },
   ],
@@ -256,6 +256,12 @@ window.SITE = {
       year: 2026,
       url: "https://www.researchgate.net/publication/414975986_Beyond_Cards_Governance_Gaps_in_Mobile_Money_and_SME_Payment_Security_in_Africa_Toward_a_Wallet-Layer_Governance_Framework_for_Small_and_Medium_Enterprise_Merchants",
     },
+    {
+      title: "The Perfect Convergence: Why Distributed Systems Governance Is Now an SME Problem",
+      venue: "ResearchGate",
+      year: 2026,
+      url: "https://www.researchgate.net/publication/417416431_Chitanda_The_Perfect_Convergence_Article_The_Perfect_Convergence_Why_Distributed_Systems_Governance_Is_Now_an_SME_Problem",
+    },
     { title: "Integrating ISO/IEC 27001 with Emerging AI Governance Frameworks: Toward a Unified Security and AI Risk Management Model", venue: "ResearchGate Preprint", year: 2026 },
     { title: "Same Model, Different Intent: Confronting Dual Use AI Capability in Cybersecurity Governance", venue: "ResearchGate Preprint", year: 2026 },
     { title: "Governing AI in Cybersecurity: Why SMEs Need Integrated Policy Frameworks for AI Driven Threat Environments", venue: "ResearchGate Preprint", year: 2026 },
@@ -301,6 +307,7 @@ window.SITE = {
 
   skills: {
     "AI Governance": ["NIST AI RMF", "ISO/IEC 42001", "EU AI Act", "OECD AI Principles", "Model cards"],
+    "Distributed Systems": ["Dependency mapping", "Service resilience", "Third-party risk", "API governance", "Operational continuity"],
     "Security & GRC": ["ISO/IEC 27001", "ISO/IEC 27005", "NIST CSF", "CIS Controls", "GDPR", "POPIA"],
     "Security Ops": ["Splunk", "Chronicle", "Incident response", "Digital forensics", "Linux"],
     Build: ["Python", "FastAPI", "PostgreSQL", "SQL", "React", "Flutter"],
