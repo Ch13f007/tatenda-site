@@ -1,4 +1,4 @@
-const S = window.SITE, $ = (id) => document.getElementById(id);
+﻿const S = window.SITE, $ = (id) => document.getElementById(id);
 const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const linksHtml = (ls) => ls.map((l) => `<a href="${l.url}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`).join("");
 const tblock = (no, title, sub) => `<div class="tblock"><div class="no"><small>Dwg no.</small>${no}</div>
